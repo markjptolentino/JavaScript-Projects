@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Challenges</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Righteous&display=swap" rel="stylesheet">
+    <script src="JS/main.js" defer></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #00b4d8, #ffba08);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            max-width: 600px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h1 {
+            font-family: 'Righteous', sans-serif;
+            font-size: 2.5rem;
+            color: #d00000;
+            text-shadow: 0 0 8px rgba(208, 0, 0, 0.5);
+            margin-bottom: 20px;
+            animation: bounce 1.5s infinite;
+        }
+
+        h2 {
+            font-family: 'Righteous', sans-serif;
+            font-size: 1.8rem;
+            color: #0077b6;
+            margin: 20px 0;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            font-size: 1rem;
+            border: 2px solid #0077b6;
+            border-radius: 5px;
+            background: #fff;
+            color: #333;
+            width: 150px;
+            transition: all 0.3s ease;
+        }
+
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #ffba08;
+            box-shadow: 0 0 10px #ffba08;
+            background: #f0f0f0;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-family: 'Righteous', sans-serif;
+            border: none;
+            border-radius: 5px;
+            background: #d00000;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(208, 0, 0, 0.5);
+        }
+
+        button:hover {
+            background: #b00000;
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(208, 0, 0, 0.7);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        .result {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #0077b6;
+            text-shadow: 0 0 5px rgba(0, 119, 182, 0.5);
+            animation: slideIn 0.5s ease-in-out;
+            min-height: 30px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.5rem; }
+            p { font-size: 1rem; }
+            .input-group { flex-direction: column; align-items: center; }
+            input[type="number"] { width: 100%; max-width: 200px; }
+            button { width: 100%; max-width: 200px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>JavaScript Challenges</h1>
+
+        <!-- Ternary Operators Challenge -->
+        <h2>Can You Vote?</h2>
+        <p>Enter your age to see if you're eligible to vote!</p>
+        <div class="input-group">
+            <input type="number" id="age" placeholder="Enter age" min="0" />
+            <button id="voteBtn">Check Eligibility</button>
+        </div>
+        <p id="voteResult" class="result"></p>
+
+        <!-- New Keyword Assignment -->
+        <h2>Vehicle Info</h2>
+        <p>Click to see Erik's car details!</p>
+        <button onclick="myFunction()">Click Here</button>
+        <p id="new_and_this" class="result"></p>
+
+        <!-- Reserved Keyword Challenge -->
+        <h2>Reserved Keyword Test</h2>
+        <p>Click to attempt using a reserved keyword!</p>
+        <button onclick="reservedKeywordTest()">Try It</button>
+        <p id="reservedResult" class="result"></p>
+
+        <!-- Nested Functions Assignment -->
+        <h2>Nested Function Counter</h2>
+        <p>Click to increment the counter!</p>
+        <p id="nested_function" onclick="countFunction()" class="result">Click here</p>
+    </div>
+</body>
+</html>
