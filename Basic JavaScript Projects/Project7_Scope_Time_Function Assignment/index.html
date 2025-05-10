@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epic Scope & Time Adventure</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1e1e2f, #2a2a4a);
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 20px;
+            transition: background 0.5s, color 0.5s;
+        }
+
+        body.light {
+            background: linear-gradient(135deg, #f0f4ff, #d9e2ff);
+            color: #1e1e2f;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        header {
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        #themeToggle {
+            background: #ff4b5c;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            font-size: 1em;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        #themeToggle:hover {
+            transform: scale(1.1);
+            background: #ff6b7c;
+        }
+
+        section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #00d4ff;
+        }
+
+        button {
+            background: #00d4ff;
+            border: none;
+            padding: 12px 25px;
+            color: #1e1e2f;
+            font-size: 1em;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background: #00b8e6;
+            transform: scale(1.05);
+        }
+
+        input {
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1em;
+            margin: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        input::placeholder {
+            color: #ccc;
+        }
+
+        .output {
+            margin-top: 15px;
+            font-size: 1.2em;
+            color: #ffd700;
+            min-height: 24px;
+        }
+
+        .clock-section {
+            background: rgba(0, 212, 255, 0.2);
+        }
+
+        #realTimeClock {
+            font-size: 1.5em;
+            color: #ffd700;
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.7);
+        }
+
+        .progress-section {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        /* Light theme adjustments */
+        body.light section {
+            background: rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        body.light h2 {
+            color: #1e1e2f;
+        }
+
+        body.light .output {
+            color: #ff4b5c;
+        }
+
+        body.light #realTimeClock {
+            color: #ff4b5c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Epic Scope & Time Adventure</h1>
+            <button id="themeToggle" onclick="toggleTheme()">🌙 Toggle Theme</button>
+        </header>
+
+        <!-- Real-Time Clock -->
+        <section class="clock-section">
+            <h2>Galactic Time</h2>
+            <p id="realTimeClock">Loading time...</p>
+        </section>
+
+        <!-- Greeting (If Statement) -->
+        <section class="greeting-section">
+            <h2>Interstellar Greeting</h2>
+            <button id="greetingBtn" onclick="getGreeting()">Get Your Cosmic Greeting!</button>
+            <p id="greeting" class="output"></p>
+        </section>
+
+        <!-- Voting Age (Else Statement) -->
+        <section class="voting-section">
+            <h2>Galactic Voting Check</h2>
+            <p>Enter your age to check voting eligibility:</p>
+            <input id="age" type="number" placeholder="Your Age" />
+            <button onclick="checkVotingAge()">Check Eligibility</button>
+            <p id="votingStatus" class="output"></p>
+        </section>
+
+        <!-- Time of Day (Else-If Statement) -->
+        <section class="time-section">
+            <h2>Time of Day Scanner</h2>
+            <button onclick="timeFunction()">Scan Time of Day</button>
+            <p id="timeOfDay" class="output"></p>
+        </section>
+
+        <!-- Debugging Section -->
+        <section class="debug-section">
+            <h2>Error Matrix</h2>
+            <button onclick="faultyFunction()">Trigger Error</button>
+            <p id="debugOutput" class="output">Check the console or here for errors!</p>
+        </section>
+
+        <!-- Progress Tracker -->
+        <section class="progress-section">
+            <h2>Mission Progress</h2>
+            <p id="progress">Interactions: 0</p>
+        </section>
+    </div>
+
+    <!-- Confetti.js for celebratory effects -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="JS/main.js"></script>
+</body>
+</html>
