@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epic TypeOf, Coercion & Numbers Explorer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="JS/main.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1e3a8a, #7c3aed);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        .glow {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        }
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto p-6 max-w-5xl">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-blue-500">
+            Epic TypeOf, Coercion & Numbers Explorer
+        </h1>
+        <!-- Document.write() Examples Section -->
+        <div class="card bg-white bg-opacity-10 backdrop-blur-lg rounded-xl p-6 glow mb-6">
+            <h2 class="text-2xl font-bold mb-4 text-blue-200">Document.write() Examples</h2>
+            <p class="mb-4 text-gray-200">Click to display typeof, string-number combination, and operator demonstrations using document.write()!</p>
+            <button onclick="displayDocumentWriteExamples()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-lg transition duration-300 pulse">
+                Show document.write() Examples
+            </button>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- TypeOf Section -->
+            <div class="card bg-white bg-opacity-10 backdrop-blur-lg rounded-xl p-6 glow">
+                <h2 class="text-2xl font-bold mb-4 text-blue-200">Discover Data Types</h2>
+                <p class="mb-4 text-gray-200">Enter a value to see its JavaScript data type!</p>
+                <input type="text" id="typeOfInput" placeholder="e.g., 42, 'hello', true" class="w-full p-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4">
+                <button onclick="displayTypeOf()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition duration-300 pulse">
+                    Show Type
+                </button>
+                <p id="typeOfResult" class="mt-4 text-lg font-semibold text-yellow-300"></p>
+            </div>
+            <!-- Coercion Section -->
+            <div class="card bg-white bg-opacity-10 backdrop-blur-lg rounded-xl p-6 glow">
+                <h2 class="text-2xl font-bold mb-4 text-blue-200">Type Coercion Magic</h2>
+                <p class="mb-4 text-gray-200">Combine two values with an operator to see coercion in action!</p>
+                <input type="text" id="coercionInput1" placeholder="e.g., '10' or 10" class="w-full p-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4">
+                <select id="operatorSelect" class="w-full p-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 mb-4">
+                    <option value="+">+ (Addition)</option>
+                    <option value="-">- (Subtraction)</option>
+                    <option value="*">* (Multiplication)</option>
+                    <option value="/">/ (Division)</option>
+                </select>
+                <input type="text" id="coercionInput2" placeholder="e.g., 5 or '5'" class="w-full p-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4">
+                <button onclick="displayCoercion()" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-lg transition duration-300 pulse">
+                    Combine Values
+                </button>
+                <p id="coercionResult" class="mt-4 text-lg font-semibold text-yellow-300"></p>
+                <p id="coercionExplanation" class="mt-2 text-sm text-gray-300"></p>
+            </div>
+            <!-- Numbers Challenge Section -->
+            <div class="card bg-white bg-opacity-10 backdrop-blur-lg rounded-xl p-6 glow">
+                <h2 class="text-2xl font-bold mb-4 text-blue-200">Numbers & Infinity Challenge</h2>
+                <p class="mb-4 text-gray-200">Explore NaN, Infinity, and console.log!</p>
+                <div class="space-y-4">
+                    <button onclick="displayNaN()" class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 rounded-lg transition duration-300 pulse">
+                        Show NaN
+                    </button>
+                    <p id="nanResult" class="text-lg font-semibold text-yellow-300"></p>
+                    <input type="text" id="isNaNInput" placeholder="e.g., 'text' or 007" class="w-full p-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-green-500 mb-4">
+                    <button onclick="displayIsNaN()" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg transition duration-300 pulse">
+                        Check isNaN()
+                    </button>
+                    <p id="isNaNResult" class="text-lg font-semibold text-yellow-300"></p>
+                    <button onclick="displayFloatingPoint()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-lg transition duration-300 pulse">
+                        Show Max Floating-Point
+                    </button>
+                    <p id="floatResult" class="text-lg font-semibold text-yellow-300"></p>
+                    <button onclick="displayInfinity()" class="w-full bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 rounded-lg transition duration-300 pulse">
+                        Show Infinity
+                    </button>
+                    <p id="infinityResult" class="text-lg font-semibold text-yellow-300"></p>
+                    <button onclick="displayNegativeInfinity()" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 rounded-lg transition duration-300 pulse">
+                        Show -Infinity
+                    </button>
+                    <p id="negativeInfinityResult" class="text-lg font-semibold text-yellow-300"></p>
+                    <button onclick="displayConsoleLog()" class="w-full bg-lime-600 hover:bg-lime-700 text-white font-semibold py-3 rounded-lg transition duration-300 pulse">
+                        Show Console Log
+                    </button>
+                    <p id="consoleLogResult" class="text-lg font-semibold text-yellow-300"></p>
+                </div>
+            </div>
+            <!-- Boolean Logic Challenge Section -->
+            <div class="card bg-white bg-opacity-10 backdrop-blur-lg rounded-xl p-6 glow">
+                <h2 class="text-2xl font-bold mb-4 text-blue-200">Boolean Logic Challenge</h2>
+                <p class="mb-4 text-gray-200">Explore Boolean comparisons with >, <, ==, ===, &&, ||, and ! operators!</p>
+                <div class="space-y-4">
+                    <button onclick="displayTrue()" class="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-semibold py-3 rounded-lg transition duration-300 pulse">
+                        Show True (> Operator)
+                    </button>
+                    <p id="trueResult" class="text-lg font-semibold text-yellow-300"></p>
+                    <button onclick="displayFalse()" class="w-full bg-pink-600 hover:bg-pink-700 text-white font-semibold py-3 rounded-lg transition duration-300 pulse">
+                        Show False (< Operator)
+                    </button>
+                    <p id="falseResult" class="text-lg font-semibold text-yellow-300"></p>
+                    <button onclick="displayConsoleFalse()" class="w-full bg-rose-600 hover:bg-rose-700 text-white font-semibold py-3 rounded-lg transition duration-300 pulse">
+                        Show False in Console
+                    </button>
+                    <p id="consoleFalseResult" class="text-lg font-semibold text-yellow-300"></p>
+                    <button onclick="displayEqualTrue()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 rounded-lg transition duration-300 pulse">
+                        Show True (== Operator)
+                    </button>
+                    <p id="equalTrueResult" class="text-lg font-semibold text-yellow-300"></p>
+                    <button onclick="displayEqualFalse()" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 rounded-lg transition duration-300 pulse">
+                        Show False (== Operator)
+                    </button>
+                    <p id="equalFalseResult" class="text-lg font-semibold text-yellow-300"></p>
+                    <button onclick="displayTripleEqualTrue()" class="w-full bg-sky-600 hover:bg-sky-700 text-white font-semibold py-3 rounded-lg transition duration-300 pulse">
+                        Show True (=== Operator)
+                    </button>
+                    <p id="tripleEqualTrueResult" class="text-lg font-semibold text-yellow-300"></p>
+                    <button onclick="displayTripleEqualFalseDiffTypeDiffValue()" class="w-full bg-fuchsia-600 hover:bg-fuchsia-700 text-white font-semibold py-3 rounded-lg transition duration-300 pulse">
+                        Show False (===, Diff Type & Value)
+                    </button>
+                    <p id="tripleEqualFalseDiffTypeDiffValueResult" class="text-lg font-semibold text-yellow-300"></p>
+                    <button onclick="displayTripleEqualFalseDiffTypeSameValue()" class="w-full bg-violet-600 hover:bg-violet-700 text-white font-semibold py-3 rounded-lg transition duration-300 pulse">
+                        Show False (===, Diff Type, Same Value)
+                    </button>
+                    <p id="tripleEqualFalseDiffTypeSameValueResult" class="text-lg font-semibold text-yellow-300"></p>
+                    <button onclick="displayTripleEqualFalseSameTypeDiffValue()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition duration-300 pulse">
+                        Show False (===, Same Type, Diff Value)
+                    </button>
+                    <p id="tripleEqualFalseSameTypeDiffValueResult" class="text-lg font-semibold text-yellow-300"></p>
+                    <button onclick="displayAndTrue()" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg transition duration-300 pulse">
+                        Show True (&& Operator)
+                    </button>
+                    <p id="andTrueResult" class="text-lg font-semibold text-yellow-300"></p>
+                    <button onclick="displayAndFalse()" class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 rounded-lg transition duration-300 pulse">
+                        Show False (&& Operator)
+                    </button>
+                    <p id="andFalseResult" class="text-lg font-semibold text-yellow-300"></p>
+                    <button onclick="displayOrTrue()" class="w-full bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 rounded-lg transition duration-300 pulse">
+                        Show True (|| Operator)
+                    </button>
+                    <p id="orTrueResult" class="text-lg font-semibold text-yellow-300"></p>
+                    <button onclick="displayOrFalse()" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-lg transition duration-300 pulse">
+                        Show False (|| Operator)
+                    </button>
+                    <p id="orFalseResult" class="text-lg font-semibold text-yellow-300"></p>
+                    <button onclick="displayNotTrue()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-lg transition duration-300 pulse">
+                        Show True (! Operator)
+                    </button>
+                    <p id="notTrueResult" class="text-lg font-semibold text-yellow-300"></p>
+                    <button onclick="displayNotFalse()" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 rounded-lg transition duration-300 pulse">
+                        Show False (! Operator)
+                    </button>
+                    <p id="notFalseResult" class="text-lg font-semibold text-yellow-300"></p>
+                    <input type="text" id="booleanInput" placeholder="e.g., 5 > 3, 10 == 10, ! (5 > 10)" class="w-full p-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 mb-4">
+                    <button onclick="displayCustomBoolean()" class="w-full bg-yellow-600 hover:bg-yellow-700 text-white font-semibold py-3 rounded-lg transition duration-300 pulse">
+                        Test Custom Comparison
+                    </button>
+                    <p id="booleanResult" class="text-lg font-semibold text-yellow-300"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
