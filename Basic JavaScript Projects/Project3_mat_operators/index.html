@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Project 3 - Math Magic Adventure</title>
+  <script src="JS/main.js" defer></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      color: #00ffcc;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 50px;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 2.5em;
+      text-shadow: 2px 2px #ff00ff;
+      animation: fadeIn 1s ease-in;
+    }
+    button {
+      font-size: 1.5em;
+      padding: 15px 30px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+      box-shadow: 0 4px #999;
+    }
+    #additionButton { background: #ffeb3b; }
+    #subtractionButton { background: #ff4040; }
+    #multiplicationButton { background: #4caf50; }
+    #divisionButton { background: #2196f3; }
+    #multipleButton { background: #9c27b0; }
+    #modulusButton { background: #ff6f00; }
+    #negationButton { background: #00bcd4; }
+    #incrementButton { background: #e91e63; }
+    #decrementButton { background: #673ab7; }
+    #randomButton { background: #4db6ac; }
+    #allOperationsButton { background: #ff5722; }
+    #sqrtButton { background: #d81b60; } /* New button style */
+
+    button:hover { transform: scale(1.1); }
+    #additionButton:hover { background: #ffd700; }
+    #subtractionButton:hover { background: #ff6666; }
+    #multiplicationButton:hover { background: #66bb6a; }
+    #divisionButton:hover { background: #42a5f5; }
+    #multipleButton:hover { background: #ab47bc; }
+    #modulusButton:hover { background: #ff8f00; }
+    #negationButton:hover { background: #00e5ff; }
+    #incrementButton:hover { background: #f06292; }
+    #decrementButton:hover { background: #9575cd; }
+    #randomButton:hover { background: #80cbc4; }
+    #allOperationsButton:hover { background: #ff8a50; }
+    #sqrtButton:hover { background: #f06292; } /* New button hover style */
+
+    button:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px #666;
+    }
+
+    p {
+      font-size: 1.5em;
+      margin: 10px;
+      color: #ff9800;
+      animation: bounceIn 0.5s ease-out;
+    }
+    .result {
+      animation: pulse 0.5s infinite;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bounceIn {
+      from { transform: scale(0); }
+      to { transform: scale(1); }
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <h1>Math Magic Adventure!</h1>
+  <button id="additionButton" onclick="additionFunction()">Add: 2 + 2 =</button>
+  <button id="subtractionButton" onclick="subtractionFunction()">Subtract: 5 - 2 =</button>
+  <button id="multiplicationButton" onclick="multiplicationFunction()">Multiply: 6 × 8 =</button>
+  <button id="divisionButton" onclick="divisionFunction()">Divide: 48 ÷ 6 =</button>
+  <button id="multipleButton" onclick="more_Math()">Multiple: (1 + 2) × 10 ÷ 2 - 5 =</button>
+  <button id="modulusButton" onclick="modulus_Operator()">Modulus: 25 % 6 =</button>
+  <button id="negationButton" onclick="negation_Operator()">Negation: -10 =</button>
+  <button id="incrementButton" onclick="increment_Operator()">Increment: 5++ =</button>
+  <button id="decrementButton" onclick="decrement_Operator()">Decrement: 5.25-- =</button>
+  <button id="randomButton" onclick="random_Operator()">Random: 0 to 100 =</button>
+  <button id="sqrtButton" onclick="sqrt_Operator()">Square Root: √16 =</button> <!-- New button -->
+  <button id="allOperationsButton" onclick="showAllOperations()">Show All Operations</button>
+
+  <!-- Result Output Areas -->
+  <p id="Math"></p>
+  <p id="MathSubtraction"></p>
+  <p id="MathMultiplication"></p>
+  <p id="MathDivision"></p>
+  <p id="MathMultiple"></p>
+  <p id="MathModulus"></p>
+  <p id="MathNegation"></p>
+  <p id="MathIncrement"></p>
+  <p id="MathDecrement"></p>
+  <p id="MathRandom"></p>
+  <p id="MathSqrt"></p> <!-- New output area -->
+</body>
+</html>

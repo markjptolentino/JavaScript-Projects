@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Project 1 - Epic Hover Adventure</title>
+  <script src="JS/main.js"></script> <!-- Linking to the external JavaScript file -->
+  <style>
+    body {
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      color: #00ffcc;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    #hoverText {
+      font-size: 2em;
+      padding: 20px;
+      cursor: pointer;
+      transition: transform 0.3s, color 0.3s;
+    }
+    #hoverText:hover {
+      transform: scale(1.2);
+      color: #ff00ff;
+    }
+    #counter {
+      font-size: 1.5em;
+      color: #ffeb3b;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <h1>Hover for Epic Rewards!</h1>
+  <p id="hoverText" onmouseover="changeTextOnHover()" onmouseout="resetText()">Hover over me for magic!</p>
+  <p id="counter">Hovers: 0</p>
+  <audio id="hoverSound" src="https://www.soundjay.com/buttons/beep-01a.mp3"></audio>
+</body>
+</html>

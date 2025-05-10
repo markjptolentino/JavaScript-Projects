@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Project 2 - Animated Click Adventure</title>
+  <script src="JS/main.js"></script> <!-- Linking to the external JavaScript file -->
+  <style>
+    body {
+      background: linear-gradient(135deg, #ff6f61, #6b5b95);
+      color: #fff;
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      padding: 50px;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 2.5em;
+      color: #00ffcc;
+      text-shadow: 2px 2px #ff00ff;
+      animation: fadeIn 1s ease-in;
+    }
+    #gameButton, #resetButton {
+      font-size: 2em;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+      outline: none;
+      margin: 10px;
+      box-shadow: 0 4px #999;
+    }
+    #gameButton {
+      background: #ffeb3b;
+    }
+    #resetButton {
+      background: #ff4040;
+    }
+    #gameButton:hover, #resetButton:hover {
+      transform: scale(1.1);
+    }
+    #gameButton:hover {
+      background: #ffd700;
+    }
+    #resetButton:hover {
+      background: #ff6666;
+    }
+    #gameButton:active, #resetButton:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px #666;
+    }
+    #points, #level, #Concatenate {
+      font-size: 1.5em;
+      margin: 10px;
+      color: #ff9800;
+      animation: bounceIn 0.5s ease-out;
+    }
+    #progress {
+      width: 300px;
+      height: 20px;
+      background: #ddd;
+      border-radius: 10px;
+      margin: 20px auto;
+      overflow: hidden;
+      animation: slideIn 1s ease-in;
+    }
+    #progressBar {
+      height: 100%;
+      background: #4caf50;
+      width: 0%;
+      transition: width 0.5s ease-in-out;
+      animation: fillProgress 5s infinite alternate;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bounceIn {
+      from { transform: scale(0); }
+      to { transform: scale(1); }
+    }
+    @keyframes slideIn {
+      from { transform: translateX(-100%); }
+      to { transform: translateX(0); }
+    }
+    @keyframes fillProgress {
+      from { width: 0%; }
+      to { width: 100%; }
+    }
+    .level-up {
+      animation: levelUpEffect 1s ease-in-out;
+    }
+    @keyframes levelUpEffect {
+      0% { transform: scale(1); color: #ff9800; }
+      50% { transform: scale(1.5); color: #00ffcc; }
+      100% { transform: scale(1); color: #ff9800; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Animated Click Adventure!</h1>
+  <button id="gameButton" onclick="displayMessage()">Click Me!</button>
+  <button id="resetButton" onclick="resetGame()">Reset Game</button>
+  <p id="points">Points: 0</p>
+  <div id="progress">
+    <div id="progressBar"></div>
+  </div>
+  <p id="level">Level: 1</p>
+  <p id="Concatenate" onclick="myFunction()">Click Here!</p>
+  <audio id="clickSound" src="https://www.soundjay.com/buttons/beep-01a.mp3"></audio>
+</body>
+</html>
