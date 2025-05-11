@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Loops, Arrays & Objects Showcase</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link to custom CSS -->
+    <link rel="stylesheet" type="text/css" href="CSS/main.css">
+    <!-- Link to JavaScript with defer -->
+    <script src="JS/main.js" defer></script>
+</head>
+<body class="bg-gradient-to-br from-blue-900 to-purple-900 min-h-screen flex flex-col items-center justify-center text-white">
+    <div class="container mx-auto p-6">
+        <h1 class="text-4xl font-bold text-center mb-8">JavaScript Loops, Arrays & Objects</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- While Loop Section -->
+            <div class="card bg-white bg-opacity-10 rounded-lg p-6 shadow-lg backdrop-blur-md">
+                <h2 class="text-2xl font-semibold mb-4">While Loop</h2>
+                <p id="loop" class="mb-4 text-gray-300">Click to count to 10.</p>
+                <button onclick="callLoop()" class="btn bg-blue-600 text-white px-4 py-2 rounded-lg">Run While Loop</button>
+            </div>
+            <!-- For Loop Section -->
+            <div class="card bg-white bg-opacity-10 rounded-lg p-6 shadow-lg backdrop-blur-md">
+                <h2 class="text-2xl font-semibold mb-4">For Loop</h2>
+                <p id="list_of_instruments" class="mb-4 text-gray-300">List musical instruments.</p>
+                <button onclick="forLoop()" class="btn bg-green-600 text-white px-4 py-2 rounded-lg">Run For Loop</button>
+            </div>
+            <!-- Array Section -->
+            <div class="card bg-white bg-opacity-10 rounded-lg p-6 shadow-lg backdrop-blur-md">
+                <h2 class="text-2xl font-semibold mb-4">Array</h2>
+                <p id="array" class="mb-4 text-gray-300">Show a cat picture description.</p>
+                <button onclick="arrayFunction()" class="btn bg-purple-600 text-white px-4 py-2 rounded-lg">Run Array</button>
+            </div>
+            <!-- Object Section -->
+            <div class="card bg-white bg-opacity-10 rounded-lg p-6 shadow-lg backdrop-blur-md">
+                <h2 class="text-2xl font-semibold mb-4">Object (let)</h2>
+                <p id="car_object" class="mb-4 text-gray-300">Describe a car.</p>
+                <button onclick="objectFunction()" class="btn bg-red-600 text-white px-4 py-2 rounded-lg">Run Object</button>
+            </div>
+            <!-- Const Section -->
+            <div class="card bg-white bg-opacity-10 rounded-lg p-6 shadow-lg backdrop-blur-md">
+                <h2 class="text-2xl font-semibold mb-4">Const Keyword</h2>
+                <p id="constant" class="mb-4 text-gray-300">Show a musical instrument.</p>
+                <button onclick="constantFunction()" class="btn bg-yellow-600 text-white px-4 py-2 rounded-lg">Run Const</button>
+            </div>
+            <!-- Let Section -->
+            <div class="card bg-white bg-opacity-10 rounded-lg p-6 shadow-lg backdrop-blur-md">
+                <h2 class="text-2xl font-semibold mb-4">Let Keyword</h2>
+                <p id="let_scope" class="mb-4 text-gray-300">Demonstrate block scope.</p>
+                <button onclick="letFunction()" class="btn bg-indigo-600 text-white px-4 py-2 rounded-lg">Run Let</button>
+            </div>
+            <!-- String Length Section -->
+            <div class="card bg-white bg-opacity-10 rounded-lg p-6 shadow-lg backdrop-blur-md">
+                <h2 class="text-2xl font-semibold mb-4">String Length</h2>
+                <p id="string_length" class="mb-4 text-gray-300">Get length of a string.</p>
+                <button onclick="stringLengthFunction()" class="btn bg-teal-600 text-white px-4 py-2 rounded-lg">Run Length</button>
+            </div>
+            <!-- Return Statement Section -->
+            <div class="card bg-white bg-opacity-10 rounded-lg p-6 shadow-lg backdrop-blur-md">
+                <h2 class="text-2xl font-semibold mb-4">Return Statement</h2>
+                <p id="return_result" class="mb-4 text-gray-300">Add two numbers.</p>
+                <button onclick="returnFunction()" class="btn bg-orange-600 text-white px-4 py-2 rounded-lg">Run Return</button>
+            </div>
+            <!-- Break/Continue Section -->
+            <div class="card bg-white bg-opacity-10 rounded-lg p-6 shadow-lg backdrop-blur-md">
+                <h2 class="text-2xl font-semibold mb-4">Break & Continue</h2>
+                <p id="break_continue" class="mb-4 text-gray-300">Show break and continue.</p>
+                <button onclick="breakContinueFunction()" class="btn bg-pink-600 text-white px-4 py-2 rounded-lg">Run Break/Continue</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

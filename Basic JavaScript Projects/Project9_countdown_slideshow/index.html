@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer & Slideshow</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link to custom CSS -->
+    <link rel="stylesheet" type="text/css" href="CSS/main.css">
+</head>
+<body class="bg-gradient-to-br from-indigo-900 to-purple-800 min-h-screen flex flex-col items-center justify-center text-white">
+    <div class="container mx-auto p-6">
+        <!-- Countdown Timer Section -->
+        <h1 class="text-4xl font-bold text-center mb-8">Countdown Timer & Slideshow</h1>
+        <div class="bg-white bg-opacity-10 rounded-lg p-6 mb-8 shadow-lg backdrop-blur-md">
+            <p class="text-lg mb-4">How many seconds would you like to set your alarm for?</p>
+            <div class="flex items-center space-x-4">
+                <input id="seconds" type="number" min="1" value="" class="w-32 p-2 rounded-lg bg-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter seconds" />
+                <button onclick="countdown()" class="btn bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">Start Countdown</button>
+            </div>
+            <p id="timer" class="text-3xl font-mono mt-4"></p>
+        </div>
+
+        <!-- Slideshow Section -->
+        <div class="slideshow-container relative w-full max-w-4xl mx-auto">
+            <!-- Slides -->
+            <div class="slide fade">
+                <img src="images/c.jpg" alt="Slide 1" class="w-full h-96 object-cover rounded-lg">
+            </div>
+            <div class="slide fade hidden">
+                <img src="images/d.jpg" alt="Slide 2" class="w-full h-96 object-cover rounded-lg">
+            </div>
+            <div class="slide fade hidden">
+                <img src="images/e.jpg" alt="Slide 3" class="w-full h-96 object-cover rounded-lg">
+            </div>
+            <!-- Navigation Buttons -->
+            <a class="prev absolute top-1/2 left-4 text-2xl cursor-pointer text-white hover:text-gray-300" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next absolute top-1/2 right-4 text-2xl cursor-pointer text-white hover:text-gray-300" onclick="plusSlides(1)">&#10095;</a>
+            <!-- Dots -->
+            <div class="flex justify-center mt-4">
+                <span class="dot w-3 h-3 mx-1 bg-gray-500 rounded-full cursor-pointer" onclick="currentSlide(1)"></span>
+                <span class="dot w-3 h-3 mx-1 bg-gray-500 rounded-full cursor-pointer" onclick="currentSlide(2)"></span>
+                <span class="dot w-3 h-3 mx-1 bg-gray-500 rounded-full cursor-pointer" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+    </div>
+    <script src="JS/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Animal Selector 🦒</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link to custom CSS -->
+    <link rel="stylesheet" type="text/css" href="CSS/main.css">
+    <!-- Link to JavaScript with defer -->
+    <script src="JavaScript/JavaScript_1.js" defer></script>
+</head>
+<body class="bg-gradient-to-br from-teal-900 to-purple-900 min-h-screen flex flex-col items-center justify-center text-white transition-all duration-1000" id="dynamic-bg">
+    <div class="container mx-auto p-6">
+        <h1 class="text-5xl font-extrabold text-center mb-6 animate-pulse">Discover Your Favorite Animal! 🐾</h1>
+        <div class="card bg-white bg-opacity-10 rounded-xl p-8 shadow-2xl backdrop-blur-md max-w-lg w-full">
+            <h3 class="text-2xl font-semibold mb-4">Choose an animal from the list:</h3>
+            <select id="animal_input" class="w-full p-3 rounded-lg bgCLR-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-teal-500 mb-6">
+                <option value="" disabled selected>Select an animal</option>
+                <option value="elephant">Elephant</option>
+                <option value="tiger">Tiger</option>
+                <option value="panda">Panda</option>
+                <option value="dolphin">Dolphin</option>
+                <option value="eagle">Eagle</option>
+                <option value="wolf">Wolf</option>
+                <option value="koala">Koala</option>
+            </select>
+            <div class="flex space-x-4 mb-6">
+                <button onclick="animalFunction()" class="btn bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition">Submit</button>
+                <button onclick="randomAnimal()" class="btn bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition">Random Animal</button>
+                <button onclick="resetForm()" class="btn bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition">Reset</button>
+            </div>
+            <p id="output" class="text-lg text-center mb-4"></p>
+            <img id="animal_image" src="" alt="Animal Image" class="w-full h-64 object-cover rounded-lg hidden">
+        </div>
+    </div>
+</body>
+</html>

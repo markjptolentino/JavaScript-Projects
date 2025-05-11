@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Pizza Galaxy</title>
+    <link rel="stylesheet" href="Pizza_CSS/Pizza.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Space Pizza Galaxy</h1>
+        <p class="slogan">The Most Cosmic Pizza in the Universe!</p>
+        <div class="stats">
+            <span>Orders: <span id="order-counter">0</span></span>
+            <span>Streak: <span id="streak-counter">0</span></span>
+        </div>
+        <div class="achievements">
+            <span class="achievement" id="ach-5">5 Orders</span>
+            <span class="achievement" id="ach-10">10 Orders</span>
+            <span class="achievement" id="ach-20">20 Orders</span>
+        </div>
+        <div class="menu">
+            <div class="options">
+                <h3>Size</h3>
+                <div class="option-group">
+                    <label><input type="radio" name="size" value="personal" onchange="updateOrder()">Personal ($6.00)</label>
+                    <label><input type="radio" name="size" value="small" onchange="updateOrder()">Small ($8.00)</label>
+                    <label><input type="radio" name="size" value="medium" onchange="updateOrder()">Medium ($10.00)</label>
+                    <label><input type="radio" name="size" value="large" onchange="updateOrder()">Large ($14.00)</label>
+                    <label><input type="radio" name="size" value="extra-large" onchange="updateOrder()">Extra Large ($16.00)</label>
+                </div>
+                <h3>Crust</h3>
+                <div class="option-group">
+                    <label><input type="radio" name="crust" value="regular" onchange="updateOrder()">Regular</label>
+                    <label><input type="radio" name="crust" value="garlic-butter" onchange="updateOrder()">Garlic Butter</label>
+                    <label><input type="radio" name="crust" value="cheese-stuffed" onchange="updateOrder()">Cheese Stuffed (+$3.00)</label>
+                    <label><input type="radio" name="crust" value="spicy" onchange="updateOrder()">Spicy</label>
+                    <label><input type="radio" name="crust" value="house-special" onchange="updateOrder()">House Special</label>
+                </div>
+                <h3>Sauce</h3>
+                <div class="option-group">
+                    <label><input type="radio" name="sauce" value="marinara" onchange="updateOrder()">Marinara</label>
+                    <label><input type="radio" name="sauce" value="habanero" onchange="updateOrder()">Habanero</label>
+                    <label><input type="radio" name="sauce" value="bbq" onchange="updateOrder()">BBQ</label>
+                    <label><input type="radio" name="sauce" value="none" onchange="updateOrder()">None</label>
+                </div>
+                <h3>Meats</h3>
+                <div class="option-group">
+                    <label><input type="checkbox" name="meat" value="pepperoni" onchange="updateOrder()">Pepperoni</label>
+                    <label><input type="checkbox" name="meat" value="sausage" onchange="updateOrder()">Sausage</label>
+                    <label><input type="checkbox" name="meat" value="canadian-bacon" onchange="updateOrder()">Canadian Bacon</label>
+                    <label><input type="checkbox" name="meat" value="ground-beef" onchange="updateOrder()">Ground Beef</label>
+                    <label><input type="checkbox" name="meat" value="anchovy" onchange="updateOrder()">Anchovy</label>
+                    <label><input type="checkbox" name="meat" value="chicken" onchange="updateOrder()">Chicken</label>
+                    <label><input type="checkbox" name="meat" value="salami" onchange="updateOrder()">Salami</label>
+                </div>
+                <h3>Vegetables</h3>
+                <div class="option-group">
+                    <label><input type="checkbox" name="vegetable" value="mushrooms" onchange="updateOrder()">Mushrooms</label>
+                    <label><input type="checkbox" name="vegetable" value="onions" onchange="updateOrder()">Onions</label>
+                    <label><input type="checkbox" name="vegetable" value="tomatoes" onchange="updateOrder()">Tomatoes</label>
+                    <label><input type="checkbox" name="vegetable" value="olives" onchange="updateOrder()">Olives</label>
+                    <label><input type="checkbox" name="vegetable" value="green-peppers" onchange="updateOrder()">Green Peppers</label>
+                </div>
+            </div>
+            <div class="order-summary">
+                <h3>Your Order</h3>
+                <div id="order-details"></div>
+                <div id="order-total">Total: $0.00</div>
+                <div class="order-history">
+                    <h3>Order History</h3>
+                    <div id="order-history"></div>
+                </div>
+            </div>
+        </div>
+        <div class="controls">
+            <button onclick="cancelOrder()">Cancel</button>
+            <button onclick="placeOrder()">Place Order</button>
+            <button onclick="toggleTheme()">Dark Mode</button>
+        </div>
+    </div>
+    <script src="Pizza_JavaScript/Pizza.js"></script>
+</body>
+</html>

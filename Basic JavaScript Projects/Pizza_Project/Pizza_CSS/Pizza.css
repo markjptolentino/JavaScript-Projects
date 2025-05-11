@@ -1,0 +1,188 @@
+body {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: background 0.5s;
+}
+
+body.dark-mode {
+    background: linear-gradient(135deg, #121212, #1c2526);
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    max-width: 900px;
+    width: 100%;
+    transition: background 0.5s;
+}
+
+.container.dark-mode {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: #ffd700;
+    font-size: 2.5em;
+    text-shadow: 0 0 10px #ffd700;
+    animation: neon-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes neon-glow {
+    from { text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700; }
+    to { text-shadow: 0 0 20px #ff4500, 0 0 30px #ff4500; }
+}
+
+.slogan {
+    font-family: 'Arial', sans-serif;
+    color: #ffec99;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+}
+
+.achievements {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+}
+
+.achievement {
+    opacity: 0.3;
+    transition: opacity 0.5s;
+}
+
+.achievement.unlocked {
+    opacity: 1;
+    text-shadow: 0 0 10px #ffd700;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.options, .order-summary {
+    flex: 1;
+}
+
+h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: #ff4500;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.option-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+}
+
+label {
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.order-summary {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.order-summary.active {
+    transform: translateX(0);
+}
+
+#order-details, #order-total, #order-history {
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    text-align: left;
+}
+
+#order-total {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.order-history {
+    margin-top: 20px;
+}
+
+.controls {
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background: #ffd700;
+    color: #1e3c72;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s, height 0.4s;
+}
+
+button:active::after {
+    width: 200px;
+    height: 200px;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+button.dark-mode {
+    background: #ffec99;
+    color: #121212;
+}
+
+button.dark-mode:hover {
+    background: #ffd700;
+}

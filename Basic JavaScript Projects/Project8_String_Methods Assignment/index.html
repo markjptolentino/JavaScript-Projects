@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript String & Number Methods Showcase</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Styles -->
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #1e3a8a, #6b21a8);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Inter', sans-serif;
+        }
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        .btn {
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="text-white">
+    <div class="container mx-auto p-6">
+        <h1 class="text-4xl font-bold text-center mb-8">JavaScript String & Number Methods</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Concat Method -->
+            <div class="card bg-white text-gray-800 rounded-lg p-6 shadow-lg">
+                <h2 class="text-2xl font-semibold mb-4">concat() Method</h2>
+                <p id="concatenate" class="mb-4 text-gray-600">Click the button to concatenate strings.</p>
+                <button onclick="fullSentence()" class="btn bg-blue-600 text-white px-4 py-2 rounded-lg">Concatenate</button>
+            </div>
+            <!-- Slice Method -->
+            <div class="card bg-white text-gray-800 rounded-lg p-6 shadow-lg">
+                <h2 class="text-2xl font-semibold mb-4">slice() Method</h2>
+                <p id="slice" class="mb-4 text-gray-600">Click to extract a string section.</p>
+                <button onclick="sliceMethod()" class="btn bg-green-600 text-white px-4 py-2 rounded-lg">Slice</button>
+            </div>
+            <!-- toUpperCase Method -->
+            <div class="card bg-white text-gray-800 rounded-lg p-6 shadow-lg">
+                <h2 class="text-2xl font-semibold mb-4">toUpperCase() Method</h2>
+                <p id="uppercase" class="mb-4 text-gray-600">Convert text to uppercase.</p>
+                <button onclick="upperCaseMethod()" class="btn bg-purple-600 text-white px-4 py-2 rounded-lg">Uppercase</button>
+            </div>
+            <!-- search Method -->
+            <div class="card bg-white text-gray-800 rounded-lg p-6 shadow-lg">
+                <h2 class="text-2xl font-semibold mb-4">search() Method</h2>
+                <p id="search" class="mb-4 text-gray-600">Find a substring's position.</p>
+                <button onclick="searchMethod()" class="btn bg-yellow-600 text-white px-4 py-2 rounded-lg">Search</button>
+            </div>
+            <!-- toString Method -->
+            <div class="card bg-white text-gray-800 rounded-lg p-6 shadow-lg">
+                <h2 class="text-2xl font-semibold mb-4">toString() Method</h2>
+                <p id="numbers_to_string" class="mb-4 text-gray-600">Convert number to string.</p>
+                <button onclick="stringMethod()" class="btn bg-red-600 text-white px-4 py-2 rounded-lg">To String</button>
+            </div>
+            <!-- toPrecision Method -->
+            <div class="card bg-white text-gray-800 rounded-lg p-6 shadow-lg">
+                <h2 class="text-2xl font-semibold mb-4">toPrecision() Method</h2>
+                <p id="precision" class="mb-4 text-gray-600">Format number to specified length.</p>
+                <button onclick="precisionMethod()" class="btn bg-indigo-600 text-white px-4 py-2 rounded-lg">To Precision</button>
+            </div>
+            <!-- toFixed Method -->
+            <div class="card bg-white text-gray-800 rounded-lg p-6 shadow-lg">
+                <h2 class="text-2xl font-semibold mb-4">toFixed() Method</h2>
+                <p id="fixed" class="mb-4 text-gray-600">Format number with fixed decimals.</p>
+                <button onclick="fixedMethod()" class="btn bg-teal-600 text-white px-4 py-2 rounded-lg">To Fixed</button>
+            </div>
+            <!-- valueOf Method -->
+            <div class="card bg-white text-gray-800 rounded-lg p-6 shadow-lg">
+                <h2 class="text-2xl font-semibold mb-4">valueOf() Method</h2>
+                <p id="valueof" class="mb-4 text-gray-600">Get primitive value of number.</p>
+                <button onclick="valueOfMethod()" class="btn bg-orange-600 text-white px-4 py-2 rounded-lg">Value Of</button>
+            </div>
+        </div>
+    </div>
+    <script src="JS/main.js"></script>
+</body>
+</html>

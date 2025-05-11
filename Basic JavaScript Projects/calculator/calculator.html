@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Calculator X</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: auto;
+            transition: background 0.5s;
+        }
+
+        body.dark-mode {
+            background: linear-gradient(135deg, #121212, #1c2526);
+        }
+
+        .calculator-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            width: 360px;
+            transition: background 0.5s;
+        }
+
+        .calculator-container.dark-mode {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px #ffd700;
+            color: #ffd700;
+            animation: neon-glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes neon-glow {
+            from { text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700; }
+            to { text-shadow: 0 0 20px #ff4500, 0 0 30px #ff4500; }
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background: #ffd700;
+            width: 0;
+            transition: width 0.5s;
+        }
+
+        .achievements {
+            display: flex;
+            justify-content: space-around;
+            margin: 10px 0;
+            font-size: 0.8em;
+        }
+
+        .achievement {
+            opacity: 0.3;
+            transition: opacity 0.5s;
+        }
+
+        .achievement.unlocked {
+            opacity: 1;
+            text-shadow: 0 0 10px #ffd700;
+        }
+
+        .display {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .history {
+            height: 60px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            padding: 5px;
+            font-size: 0.8em;
+            text-align: right;
+            overflow-y: auto;
+            color: #ccc;
+            transition: background 0.5s;
+        }
+
+        .history.dark-mode {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        #display {
+            width: 100%;
+            height: 60px;
+            background: rgba(0, 0, 0, 0.3);
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 2em;
+            text-align: right;
+            padding: 10px;
+            box-sizing: border-box;
+            pointer-events: none;
+            transition: background 0.5s, transform 0.1s;
+        }
+
+        #display.dark-mode {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        #display.error {
+            animation: shake 0.3s;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        button {
+            padding: 20px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.4s, height 0.4s;
+        }
+
+        button:active::after {
+            width: 200px;
+            height: 200px;
+        }
+
+        .number {
+            background: #ffd700;
+            color: #1e3c72;
+        }
+
+        .operation {
+            background: #ff4500;
+            color: #fff;
+        }
+
+        .memory {
+            background: #4682b4;
+            color: #fff;
+        }
+
+        .number.dark-mode {
+            background: #ffec99;
+            color: #121212;
+        }
+
+        .operation.dark-mode {
+            background: #ff6347;
+        }
+
+        .memory.dark-mode {
+            background: #5f9ea0;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        .controls {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .controls button {
+            background: #ffd700;
+            color: #1e3c72;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+        }
+
+        .controls button.dark-mode {
+            background: #ffec99;
+            color: #121212;
+        }
+
+        .controls button:hover {
+            background: #ffec99;
+        }
+
+        .controls button.dark-mode:hover {
+            background: #ffd700;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <h1>Neon Calculator X</h1>
+        <div class="stats">
+            <span>Calculations: <span id="calc-counter">0</span></span>
+            <span>Streak: <span id="streak-counter">0</span></span>
+        </div>
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+        <div class="achievements">
+            <span class="achievement" id="ach-10">10 Calcs</span>
+            <span class="achievement" id="ach-50">50 Calcs</span>
+            <span class="achievement" id="ach-100">100 Calcs</span>
+        </div>
+        <div class="display">
+            <div class="history" id="history"></div>
+            <input type="text" id="display" readonly>
+        </div>
+        <div class="buttons">
+            <button class="memory" onclick="memoryFunction('MC')">MC</button>
+            <button class="memory" onclick="memoryFunction('MR')">MR</button>
+            <button class="memory" onclick="memoryFunction('M+')">M+</button>
+            <button class="memory" onclick="memoryFunction('M-')">M-</button>
+            <button class="operation" onclick="clearDisplay('CE')">CE</button>
+            <button class="operation" onclick="clearDisplay('C')">C</button>
+            <button class="operation" onclick="calculate('sqrt')">√</button>
+            <button class="operation" onclick="calculate('pow')">x²</button>
+            <button class="number" onclick="appendToDisplay('7')">7</button>
+            <button class="number" onclick="appendToDisplay('8')">8</button>
+            <button class="number" onclick="appendToDisplay('9')">9</button>
+            <button class="operation" onclick="appendToDisplay('/')">/</button>
+            <button class="number" onclick="appendToDisplay('4')">4</button>
+            <button class="number" onclick="appendToDisplay('5')">5</button>
+            <button class="number" onclick="appendToDisplay('6')">6</button>
+            <button class="operation" onclick="appendToDisplay('*')">×</button>
+            <button class="number" onclick="appendToDisplay('1')">1</button>
+            <button class="number" onclick="appendToDisplay('2')">2</button>
+            <button class="number" onclick="appendToDisplay('3')">3</button>
+            <button class="operation" onclick="appendToDisplay('-')">-</button>
+            <button class="number" onclick="appendToDisplay('0')">0</button>
+            <button class="number" onclick="appendToDisplay('.')">.</button>
+            <button class="operation" onclick="calculate('=')">=</button>
+            <button class="operation" onclick="appendToDisplay('+')">+</button>
+        </div>
+        <div class="controls">
+            <button id="theme-toggle" onclick="toggleTheme()">Dark Mode</button>
+        </div>
+    </div>
+    <script src="js/Calculator_JavaScript.js"></script>
+</body>
+</html>

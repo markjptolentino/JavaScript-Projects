@@ -1,0 +1,27 @@
+/* Card Hover Effect */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Button Hover Effect */
+.btn {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+/* Fade Animation for Results */
+.card p {
+    transition: opacity 0.5s ease;
+}
+
+.card p:empty {
+    opacity: 0;
+}
